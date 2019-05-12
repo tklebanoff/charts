@@ -38,6 +38,12 @@ spec:
       nodePort: {{ toYaml . }}
       {{- end }}
     {{- end }}
+    {{- if .Values.service.redis.enabled }}
+    - port: {{ .Values.service.redis.port }}
+      targetPort: {{ .Values.service.redis.targetPort }}
+      protocol: TCP
+      name: redis
+    {{- end }}
   selector:
     app.kubernetes.io/name: {{ include "ambassador.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}

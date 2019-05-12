@@ -54,6 +54,11 @@ service:
     port: 443
     targetPort: 8443
     # nodePort: 30443
+    
+  redis:
+    enabled: true
+    port: 6379
+    targetPort: 6379
 
   annotations:
     getambassador.io/config: |
