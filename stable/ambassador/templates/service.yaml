@@ -44,6 +44,12 @@ spec:
       protocol: TCP
       name: redis
     {{- end }}
+    {{- if .Values.service.mongoose.enabled }}
+    - port: {{ .Values.service.mongoose.port }}
+      targetPort: {{ .Values.service.mongoose.targetPort }}
+      protocol: TCP
+      name: mongoose
+    {{- end }}
   selector:
     app.kubernetes.io/name: {{ include "ambassador.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}

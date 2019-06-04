@@ -60,6 +60,11 @@ service:
     port: 6379
     targetPort: 6379
 
+  mongoose:
+    enabled: true
+    port: 5222
+    targetPort: 5222
+
   annotations:
     getambassador.io/config: |
       ---
