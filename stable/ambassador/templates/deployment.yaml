@@ -89,6 +89,10 @@ spec:
             - name: http
               containerPort: {{ .Values.service.http.targetPort }}
             {{- end }}
+            {{- if .Values.service.mongoose.enabled }}
+            - name: mongoose
+              containerPort: {{ .Values.service.mongoose.targetPort }}
+            {{- end }}
             {{- if .Values.service.https.enabled }}
             - name: https
               containerPort: {{ .Values.service.https.targetPort }}
